@@ -1,0 +1,125 @@
+:root, body {
+  margin: 0;
+  padding: 0;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  font-family: monospace;
+  line-height: 30px;
+  font-size: 18px;
+  text-align: center;
+  padding-left: 30px;
+}
+.checkerboard {
+  width: 300px;
+  height: 330px;
+  position: relative;
+}
+.content {
+  border-width: 0 0 1px 1px;
+  border-color: #ccc;
+  border-style: solid;
+}
+.topnum span {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+}
+.line {
+  position: relative;
+  width: 300px;
+  height: 30px;
+  border-collapse: collapse;
+}
+.line::before {
+  position: absolute;
+  display: inline-block;
+  width: 30px;
+  content: attr(data-id);
+  left: -30px;
+  top: 0;
+}
+.line div {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: white;
+  border-width: 1px 1px 0 0;
+  border-color: #ccc;
+  border-style: solid;
+  transition: all .8s ease;
+}
+#node {
+  position: absolute;
+  left: 0;
+  top: 31px;
+  width: 30px;
+  height: 30px;
+  background: #F00;
+  border-top: 7px solid #00F;
+  opacity: 1;
+  transition: all .5s cubic-bezier(.2,0,0,1);
+}
+.con {
+  margin-left: 30px;
+  position: relative;
+  display: flex;
+  flex: 1;
+  /*width: 400px;*/
+  height: 100%;
+  flex-direction: column;
+  -webkit-align-items: stretch;
+  align-items: stretch;
+}
+.con .linenum-box {
+  position: absolute;
+  left: 0;
+  margin-left: -30px;
+  height: calc(100% - 60px);
+  width: 30px;
+  overflow: hidden;
+}
+.con #linenums {
+  text-align: right;
+  position: relative;
+  padding-top: 3px;
+  line-height: 17px;
+}
+.con #errorpoint {
+  display: none;
+  position: absolute;
+  top: 0;
+  width: 30px;
+  height: 17px;
+  background: red;
+  z-index: -1;
+}
+.con textarea {
+  flex: 1;
+  width: 100%;
+  resize: none;
+  background: #333;
+  color: white;
+  border: none;
+  line-height: 17px;
+  outline: none;
+  padding: 5px 10px;
+  font-size: 14px;
+  overflow: scroll;
+}
+.con button {
+  height: 30px;
+  background: #aaa;
+  color: white;
+  border: none;
+}

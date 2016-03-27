@@ -1,0 +1,27 @@
+doctype html
+head
+  meta(charset="utf-8")
+  title 指令方块
+  link(rel="stylesheet", href="index.css")
+  script(src="index.js", charset="utf-8")
+body
+  .checkerboard
+    .topnum
+      - var i = 1;
+        while i <= 10
+          span=i++
+    .content
+      - var i = 1;
+        while i <= 10
+          - var j = 1;
+            div.line(data-id=i++)
+              while j++ <= 10
+                div(id="box-#{j - 2}-#{i - 2}")
+      #node
+  .con
+    .linenum-box
+      #linenums
+        #errorpoint
+    textarea#command(type="text", onchange="updateText()", onkeydown="updateText()", onscroll="scroll()", wrap="off")
+    button(onclick="go()") go
+    button(onclick="randomWall()") create wall
