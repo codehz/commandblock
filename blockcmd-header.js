@@ -305,8 +305,8 @@
     //强制移动位置
     forceMoveTo(pos) {
       this.pos = {
-        x: pos[0] - 1,
-        y: pos[1] - 1
+        x: pos[0],
+        y: pos[1]
       };
       let ret = this.adjustPosition();
       this.updateTransform();
@@ -322,6 +322,15 @@
         return true;
       }
       return false;
+    }
+
+    switchWall(pos) {
+      if (pos[0] >= 0 && pos[0] < this.w && pos[1] >= 0 && pos[1] < this.h) {
+        if (!this.data[pos[1]][pos[0]]) this.data[pos[1]][pos[0]] = 'aaa';
+        else this.data[pos[1]][pos[0]] = null;
+        this.updateWall();
+        return true;
+      }
     }
 
     //粉刷一座墙
@@ -398,6 +407,9 @@
           if (this.data[j][i]) {
             let target = document.getElementById(`box-${i}-${j}`);
             target.style.background = `#${this.data[j][i]}`;
+          } else {
+            let target = document.getElementById(`box-${i}-${j}`);
+            target.style.background = `none`;
           }
         }
       }

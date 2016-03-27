@@ -49,4 +49,12 @@
     global.scroll = () => {
         linenums.style.marginTop = -command.scrollTop + 'px';
     };
+    global.onpress = ({target: {id}}) => {
+      let pos = id.match(/\d+/g).map(it => parseInt(it));
+      rootVm.forceMoveTo(pos);
+    };
+    global.onrightclick = ({target: {id}}) => {
+      let pos = id.match(/\d+/g).map(it => parseInt(it));
+      rootVm.switchWall(pos);
+    };
 })(window);

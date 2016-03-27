@@ -20,12 +20,12 @@ body
           - var j = 1;
             div.line(data-id=i++)
               while j++ <= 10
-                div(id="box-#{j - 2}-#{i - 2}")
+                div(id="box-#{j - 2}-#{i - 2}", onclick="onpress(event)", oncontextmenu="onrightclick(event); return false;")
       #node
   .con
     .linenum-box
       #linenums
         #errorpoint
-    textarea#command(type="text", onchange="updateText()", onkeydown="updateText()", onscroll="scroll()", wrap="off")
+    textarea#command(type="text", onclick="updateText()", onchange="updateText()", onkeydown="updateText()", onscroll="scroll()", wrap="off")
     button(onclick="go()") go
     button(onclick="randomWall()") create wall
